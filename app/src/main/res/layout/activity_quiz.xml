@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".QuizActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="48dp"
+        android:layout_margin="5dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:id="@+id/layoutScore">
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:progress="50"
+                android:layout_margin="10dp"/>
+            <!--    Joueur    -->
+            <TextView
+                android:id="@+id/nomJoueurTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/progressBar"
+                android:layout_toRightOf="@+id/imgAvatarJoueur"
+                android:text="JOUEUR" />
+            <TextView
+                android:id="@+id/scoreJoueurTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/imgAvatarJoueur"
+                android:layout_below="@+id/nomJoueurTV"
+                android:text="0" />
+            <ImageView
+                android:id="@+id/imgAvatarJoueur"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/progressBar"
+                android:layout_alignParentLeft="true"
+                tools:srcCompat="@drawable/avatar_joueur"
+                android:layout_marginRight="5dp"/>
+            <!--                tools:srcCompat="@tools:sample/avatars"-->
+
+            <!--    Adversaire    -->
+            <TextView
+                android:id="@+id/nomAdversaireTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/progressBar"
+                android:layout_toLeftOf="@+id/imgAvatarAdversaire"
+                android:text="ADVERSAIRE" />
+            <TextView
+                android:id="@+id/scoreAdversaireTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/imgAvatarAdversaire"
+                android:layout_below="@+id/nomAdversaireTV"
+                android:text="O" />
+            <ImageView
+                android:id="@+id/imgAvatarAdversaire"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/progressBar"
+                android:layout_alignParentRight="true"
+                tools:srcCompat="@drawable/avatar_bot"
+                android:layout_marginLeft="5dp"/>
+<!--            tools:srcCompat="@tools:sample/avatars"-->
+
+            <TextView
+                android:id="@+id/districtTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:textSize="15dp"
+                android:text="DISTRICT"/>
+        </RelativeLayout>
+
+        <!--  QUIZ  -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layoutScore"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp">
+            <!--            android:background="#DC143C"-->
+
+            <TextView
+                android:id="@+id/questionTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="40dp"
+                android:padding="20dp"
+                android:text="QUESTION"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/response1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/questionTV"
+                android:layout_margin="5dp"
+                android:padding="25dp"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/response2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/response1"
+                android:layout_margin="5dp"
+                android:padding="25dp"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/response3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/response2"
+                android:layout_margin="5dp"
+                android:padding="25dp"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/response4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/response3"
+                android:layout_margin="5dp"
+                android:padding="25dp"
+                android:text="Button" />
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

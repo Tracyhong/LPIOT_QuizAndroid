@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ClassroomCommunity</string>
+    <string name="title_activity_login">Connexion</string>
+    <string name="prompt_user">Utilisateur</string>
+    <string name="prompt_password">Mot de passe</string>
+    <string name="validate">Valider</string>
+</resources>
