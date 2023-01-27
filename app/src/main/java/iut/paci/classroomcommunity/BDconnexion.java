@@ -7,11 +7,13 @@ import android.widget.Toast;
 
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
+import com.koushikdutta.ion.Response;
 
 public class BDconnexion {
 
     private static String bdd = "http://10.10.12.156:80/lpiot/api/";
     private static String key = "iot1235";
+    private static boolean loginExist=false;
     public static boolean checkConnection(Context ctx) {
         ConnectivityManager connectivityManager =
                 (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -26,7 +28,7 @@ public class BDconnexion {
     }
 
     public static boolean login(Context ctx, String username, String password){
-        final boolean[] loginExist = {false};
+        System.out.println("-------------USER APP"+username + password);
         if(checkConnection(ctx)) {
             String url = bdd + "login.php?key=" + key + "&username=" + username + "&password=" + password;
             System.out.println(url);
@@ -40,16 +42,17 @@ public class BDconnexion {
                             System.out.println("--------------------"+result);
                             if (result == null){
                                 Toast.makeText(ctx, "RIEN", Toast.LENGTH_SHORT).show();
-                                loginExist[0] = false;
+                                loginExist=false;
                             }
                             else {
                                 Toast.makeText(ctx, "LOGIN", Toast.LENGTH_SHORT).show();
-                                loginExist[0] = true;
+                                loginExist=true;
                             }
                         }
                     });
         }
-        return loginExist[0];
+        System.out.println(loginExist);
+        return loginExist;
     }
 
 }
