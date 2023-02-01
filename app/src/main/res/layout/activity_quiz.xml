@@ -106,12 +106,25 @@
                 android:text="QUESTION"
                 android:textSize="20dp" />
 
-            <Button
+            <GridView
+                android:id="@+id/gridView"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="#BAB2B2"
+                android:layout_below="@+id/questionTV"
+                android:numColumns="1"
+                android:scrollbars="vertical">
+
+            </GridView>
+            <!--<Button
                 android:id="@+id/response1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/questionTV"
-                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
                 android:padding="25dp"
                 android:text="Button" />
 
@@ -140,7 +153,7 @@
                 android:layout_below="@+id/response3"
                 android:layout_margin="5dp"
                 android:padding="25dp"
-                android:text="Button" />
+                android:text="Button" />-->
         </RelativeLayout>
 
 

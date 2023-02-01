@@ -10,6 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.koushikdutta.async.future.Future;
+import com.koushikdutta.async.future.FutureCallback;
+
+import java.io.IOException;
+
 public class LoginActivity extends AppCompatActivity {
 
     @Override
@@ -27,23 +32,47 @@ public class LoginActivity extends AppCompatActivity {
 
                 String usernameText = username.getText().toString();
                 String passwordText = password.getText().toString();
-                if(!usernameText.equals("") && !passwordText.equals("")){
-                    if(BDconnexion.login(LoginActivity.this,usernameText,passwordText)){
-                        User user = new User(usernameText,passwordText);
-                        Log.i("tag", usernameText);
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        Bundle bundle = new Bundle();
-    //                bundle.putString("nom",usernameText);
-                        bundle.putSerializable("user", user);
-                        intent.putExtras(bundle);
-                        Toast t = Toast.makeText(LoginActivity.this, usernameText, Toast.LENGTH_SHORT);
-                        t.show();
-                        startActivity(intent);
-                    }
-                    else{
-                        Toast t = Toast.makeText(LoginActivity.this, "INCONNU !", Toast.LENGTH_SHORT);
-                        t.show();
-                    }
+                if(!usernameText.equals("") && !passwordText.equals("")) {
+                    /*BDconnexion.login(LoginActivity.this, usernameText, passwordText)
+                            .setCallback(new FutureCallback<JsonResponse>() {
+
+                                // onCompleted is executed on ui thread
+                                @Override
+                                public void onCompleted(Exception e, JsonResponse jsonResponse) {
+                                    if (jsonResponse.ok) {
+                                        User user = new User(usernameText,passwordText);
+                                        Log.i("tag", usernameText);
+                                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                        Bundle bundle = new Bundle();
+//                                        bundle.putString("nom",usernameText);
+                                        bundle.putSerializable("user", user);
+                                        intent.putExtras(bundle);
+                                        Toast t = Toast.makeText(LoginActivity.this, usernameText, Toast.LENGTH_SHORT);
+                                        t.show();
+                                        startActivity(intent);
+                                    } else {
+                                        Toast t = Toast.makeText(LoginActivity.this, "INCONNU !", Toast.LENGTH_SHORT);
+                                        t.show();
+                                    }
+                                }
+                            });
+                }*/
+                        if(BDconnexion.login(LoginActivity.this, usernameText, passwordText)){
+                            User user = new User(usernameText,passwordText);
+                            Log.i("tag", usernameText);
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            Bundle bundle = new Bundle();
+        //                bundle.putString("nom",usernameText);
+                            bundle.putSerializable("user", user);
+                            intent.putExtras(bundle);
+                            Toast t = Toast.makeText(LoginActivity.this, usernameText, Toast.LENGTH_SHORT);
+                            t.show();
+                            startActivity(intent);
+                        }
+                        else{
+                            Toast t = Toast.makeText(LoginActivity.this, "INCONNU !", Toast.LENGTH_SHORT);
+                            t.show();
+                        }
                 }
                 else{
                     Toast t = Toast.makeText(LoginActivity.this, "CONNECTE TOI !", Toast.LENGTH_SHORT);

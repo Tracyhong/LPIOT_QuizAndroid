@@ -32,8 +32,6 @@ public class MainActivity extends AppCompatActivity {
         this.user = (User) bundle.getSerializable("user");
         Toast t = Toast.makeText(MainActivity.this, "Bienvenue " + user.getName(), Toast.LENGTH_SHORT);
         t.show();
-       /* TextView msgTextView = (TextView) findViewById(R.id.msgTV);
-        msgTextView.setText("Bonjour " + user.getName());*/
 
         Button b = (Button) findViewById(R.id.button);
         b.setOnClickListener(new View.OnClickListener() {
