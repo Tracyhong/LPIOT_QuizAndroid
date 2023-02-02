@@ -33,7 +33,7 @@ public class QuizActivity extends AppCompatActivity {
 
     User user;
     int idDistrict;
-    private GridView gridView;
+    private static GridView gridView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,11 +64,13 @@ public class QuizActivity extends AppCompatActivity {
             throw new RuntimeException(e);
         }
         System.out.println("********NULLLLLLLL********"+quiz.toString().equals(new JSONObject().toString()));
-        while (quiz.toString().equals(new JSONObject().toString())) {
+        int cpt = 0;
+        while (quiz.toString().equals(new JSONObject().toString()) && cpt<100) {
             try {
                 Thread.sleep(500);
                 System.out.println("boucle");
                 quiz = getQuiz();
+                cpt++;
             } catch (InterruptedException ex) {
                 throw new RuntimeException(ex);
             }
@@ -104,7 +106,9 @@ public class QuizActivity extends AppCompatActivity {
                           map.put("reponse",jsonQuiz.getJSONArray("reponse").getJSONObject(0).getString("texte"));
                           System.out.println(map.toString());*/
     }
-
+    public static GridView getGridView(){
+        return gridView;
+    }
     private Runnable mToastRunnable = new Runnable() {
         @Override
         public void run() {

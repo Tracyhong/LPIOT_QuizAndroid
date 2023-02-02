@@ -39,7 +39,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 public class BDconnexion {
 
-    private static String bdd = "http://10.10.8.250:80/lpiot/api/";
+    private static String bdd = "http://192.168.137.1:80/lpiot/api/";
     private static String key = "iot1235";
     private static boolean loginExist=false;
     private static JSONObject quiz = new JSONObject();

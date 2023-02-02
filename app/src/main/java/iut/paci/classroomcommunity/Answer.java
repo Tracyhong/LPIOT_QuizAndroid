@@ -16,4 +16,12 @@ public class Answer {
     public boolean getIsReponse() {
         return isReponse;
     }
+
+    @Override
+    public String toString() {
+        return "Answer{" +
+                "texte='" + texte + '\'' +
+                ", isReponse=" + isReponse +
+                '}';
+    }
 }
